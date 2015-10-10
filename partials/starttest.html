@@ -1,0 +1,89 @@
+  <!--           
+
+  <button class="btn btn-lg btn-primary" ng-click="change()"> Register</button>
+<!-<a href="#mainpage">Resister </a>              
+
+ <input type="submit" name="submit" id="submit" value="Submit" class="btn btn-info pull-right" href="#mainpage"> - 
+-->   
+
+<head>
+<link href="styles/main.css" type="text/css" rel="stylesheet" />
+</head>
+
+<div class="contentArea" id="scrollableContent">
+    <div class="page-header" align="center">
+        <h1 style="color: #295855"> REGISTRATION FORM  </h1>
+    </div>
+    <!--Registration form - START--> 
+    <div >
+        <div class="row" >
+            <form role="form">
+                <div class="col-lg-10">
+                    <div class="well well-sm"> <h4>
+                    <strong><span class="glyphicon glyphicon-asterisk"></span> Required Field</h4></strong>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="InputName"><h4>Enter Name</h4></label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="InputName" id="InputName" ng-model="newcontact.name" placeholder="Enter Name" required>
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="InputEmail"><h4>Enter Email</h4></label>
+                        <div class="input-group">
+                            <input type="email" class="form-control" id="InputEmailFirst" name="InputEmail" ng-model="newcontact.email" placeholder="Enter Email" required>
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="InputContact"><h4>Contact No</h4></label>
+                        <div class="input-group">
+                            <input type="contact" class="form-control" id="InputContact" name="InputContact" ng-model="newcontact.phone" placeholder="Contact No" required>
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="InputDOB"><h4>Date Of Birth</h4></label>
+                        <div class="input-group"> 
+                            <input type="date" class="form-control" id="InputDOB" name="InputDOB" ng-model="newcontact.DOB" placeholder="Date Of Birth" required>
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+
+                        </div>
+
+                    </div>
+
+                    <br>
+                    <td><input type="hidden" ng-model="newcontact.id"></td></tr>
+                    <tr><td></td>
+                    <td><input type="button"  class="btn btn-info pull-right" value="Start test" ng-click="arpit();" ></td></tr>
+        
+                    <table align="center" style="width: 50%; height: 5%;">
+                    <thead> 
+                    <tr >
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>DOB</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="contact in contacts">
+                        <td>{{ contact.name }}</td>
+                        <td>{{ contact.email }}</td>
+                        <td>{{ contact.phone }}</td>
+                        <td>{{ contact.DOB }}</td>
+                        <!--<td>
+                            <a href="#" ng-click="edit(contact.id)">edit</a> | 
+                            <a href="#" ng-click="delete(contact.id)">delete</a>
+                        </td> -->
+                     </tr>
+                    </tbody>
+                    </table>    
+                </div>
+            </form>
+        </div>
+    </div>
+</div>   
+<!-- Registration form - END-->

@@ -1,0 +1,1186 @@
+<!-- code for resizing has been disable in Angular-gridster.js  -->
+<!-- Change the gridster border color same as background color in style.css @50 -->
+<style>
+.contentbox1{
+  border-color:#ffff;
+  background-color: #ffff;
+  border-radius: 0px;
+  padding:0px;
+  margin:-10px;
+}
+.myinner{
+height:135;
+  background-color: #e1e7a9;
+  border:1px solid #ddd;
+
+  border:1px solid #e1e7a9;
+}
+.div1{      
+      display:inline;
+    }
+    
+.cal-month-day {
+  height: 50px;
+}
+.cal-month-box [class*="cal-cell"] {
+  min-height: 50px;
+  border-right: 1px solid #e1e1e1;
+  position: relative;
+}
+.cal-month-day .cal-events-num {
+  margin-left: 3px;
+  margin-top: 3px;
+}
+span[data-cal-date] {
+  font-size: 1em;
+  margin-top: 4px;
+  margin-right: 15px;
+}
+.badge {
+    padding: 1px 4px;
+    font-size: 10px;
+    font-weight: bold;
+    line-height: 1;
+    color: #fff;
+    background-color: #454454;
+    border-radius: 10px;
+}
+.event {
+    width: 7px;
+    height: 7px;
+    margin-right: 2px;
+    margin-bottom: 2px;
+}
+.cal-month-box .cal-day-today span[data-cal-date] {
+  font-size: 1.2em;
+}
+.cal-slide-content {
+  font-size: 0.8em;
+  padding: 10px;
+  color: #ffffff;
+  background-color: #454454;
+  -webkit-box-shadow: inset 0px 0px 15px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0px 0px 15px 0px rgba(0, 0, 0, 0.5);
+}
+.nested {
+        border: 1px solid #454454;
+        background-color: #fff;
+       
+        height:125px;
+        width:280px;
+        margin:auto;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        padding: 1em;
+      }
+.carousel-control {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 3%;
+}
+.carousel-control.left {
+  background-image:linear-gradient(to right, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .0001) 0%);
+}
+.carousel-control.right {
+  right: 0;
+  left: auto;
+  background-image:linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 0%);
+
+}
+.nav-tabs > li > a {
+  margin-right: 2px;
+  line-height: 1.42857143;
+  border: 1px solid transparent;
+  border-radius: 0px 0px 0 0;
+}
+.nav > li > a {
+  position: relative;
+  display: block;
+  padding: 5px 15px;
+
+}
+    .nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+  color: #555;
+  cursor: default;
+  background-color: #e1e7a9;
+  border: 1px solid #e1e7a9;
+  border-bottom-color: transparent;
+}
+.gap{
+     padding: 5px 5px;
+}
+</style>
+
+
+<link rel="stylesheet" href="demo/dashboard/style.css" />
+<div class="contentArea" >
+  <tabset>
+    <tab heading="Skills to Watch">    
+    <div >
+      <div class="contentbox1 myinner">
+        <div>
+        <div style="height: 140px">
+            <carousel interval="myInterval">
+            <slide ng-repeat="slide in slides" active="slide.active">  
+            <button ng-click="open()"class="nested" >
+            <div>
+                <div class="row"> 
+                  <div class="col-md-12">      
+                    <h4 align="left">
+                        <li>Skill Name</li>
+                        <li>Avg Proficiency</li>
+                        <li>Start Date</li>
+                        <li>Due Date</li>
+                    </h4>
+                  </div>
+                </div>
+            </div>
+            </button>
+            <button ng-click="open()"class="nested" >
+            <div>
+                <div class="row">
+                  <div class="col-md-12">      
+                    <h4 align="left">
+                        <li>Skill Name</li>
+                        <li>Avg Proficiency</li>
+                        <li>Start Date</li>
+                        <li>Due Date</li>
+                    </h4>
+                  </div>
+                </div>
+            </div>
+            </button>
+            <button ng-click="open()"class="nested" >
+            <div>
+                <div class="row">
+                  <div class="col-md-12">      
+                    <h4 align="left">
+                        <li>Skill Name</li>
+                        <li>Avg Proficiency</li>
+                        <li>Start Date</li>
+                        <li>Due Date</li>
+                    </h4>
+                  </div>
+                </div>
+            </div>
+            </button>
+            <button ng-click="open()"class="nested" >
+            <div>
+                <div class="row">
+                  <div class="col-md-12">      
+                    <h4 align="left">
+                        <li>Skill Name</li>
+                        <li>Avg Proficiency</li>
+                        <li>Start Date</li>
+                        <li>Due Date</li>
+                    </h4>
+                  </div>
+                </div>
+            </div>
+            </button>
+            </slide>
+            </carousel>
+        </div>
+      </div>
+      </div>  
+    </div>      
+   <br/>     
+
+<div gridster="gridsterOptions">
+	<!-- default widget ---------------------------------------------->
+	<ul>	
+    <li gridster-item="widget" ng-repeat="widget in dashboard.widgets">
+			<div class="box" ng-controller="CustomWidgetCtrl">
+				<div class="box-header">
+					<h3>{{ widget.name }}</h3>
+					<div class="box-header-btns pull-right">
+						<a title="settings" ng-click="openSettings(widget)"><i class="glyphicon glyphicon-cog"></i></a>
+						<a title="Remove widget" ng-click="remove(widget)"><i class="glyphicon glyphicon-trash"></i></a>
+					</div>
+				</div>
+				<div class="box-content">
+                    hare krishna
+				</div>
+			</div>
+		</li>
+    </ul>
+<!---------------------------------------------------------------------------->
+<!--   calendar widget --> 
+    <ul>
+    <li gridster-item="widget" ng-repeat="widget in dashboard2.widgets" >
+        <div class="box1" ng-controller="CalendarWidgetCtrl">
+            <div class="box-header">
+				<h3>{{ widget.name }}</h3>
+				<div class="box-header-btns pull-right">
+				<a title="Open full window" ng-click="open('lg')"><i class="glyphicon glyphicon-new-window"></i></a> 
+				</div>
+            </div>
+            <div class="box-content" style="line-height:1em;overflow:inherit">  
+                <div  ng-cloak>
+                    <div class="container-fluid">
+                        <div class="row" ng-controller="Calendarctrl as vm" id="demo" >
+                            <div class="row">
+                            <div class="col-md-4">
+                                <h3 class="text-center">{{ vm.calendarTitle }}</h3>
+                             </div>
+                             <div class="col-md-8">
+                              <div class="btn-group">
+                                <label
+                                  class="btn btn-primary"
+                                  mwl-date-modifier
+                                  date="vm.calendarDay"
+                                  decrement="vm.calendarView">
+                                  Previous
+                                </label>
+                                <label
+                                  class="btn btn-default"
+                                  mwl-date-modifier
+                                  date="vm.calendarDay"
+                                  set-to-today>
+                                  Today
+                                </label>
+                                <label
+                                  class="btn btn-primary"
+                                  mwl-date-modifier
+                                  date="vm.calendarDay"
+                                  increment="vm.calendarView">
+                                  Next
+                                  </label>
+                              </div>
+                                </div>
+                        </div>
+                            <br/>
+                        <div  class="col-md-12 col-md-offset-0">
+                          <mwl-calendar
+                            events="vm.events"
+                            view="vm.calendarView"
+                            view-title="vm.calendarTitle"
+                            current-day="vm.calendarDay"
+                            on-event-click="vm.eventClicked(calendarEvent)"
+                            on-event-times-changed="vm.eventTimesChanged(calendarEvent); calendarEvent.startsAt = calendarNewEventStart; calendarEvent.endsAt = calendarNewEventEnd"
+                           
+                            auto-open="true"
+                            day-view-start="06:00"
+                            day-view-end="22:00"
+                            day-view-split="30"
+                            cell-modifier="vm.modifyCell(calendarCell)">
+                          </mwl-calendar>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>         
+        </div>
+    </li>
+</ul>
+<!-- End widget -->    
+   
+<!--   Roster widget --> 
+<div>   
+    <ul>
+        <li gridster-item="widget" ng-repeat="widget in dashboard3.widgets" >
+			<div class="box" ng-controller="RosterWidgetCtrl">
+				<div class="box-header">   
+                 <div class="row">
+                    <div class="col-md-5">
+                        <h3>{{ widget.name }}</h3>
+                    </div>
+                 <div class="col">
+                    <p class="input-group" style="margin-top:10px">
+                    <input type="date" class="form-control" datepicker-popup ng-model="dt" is-open="status.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                    </p>
+                 </div>
+                </div>             
+                <div class="box-header-btns pull-right">
+                    <a title="open Full window" ng-click="open('lg')"><i class="glyphicon glyphicon-new-window"></i></a>  
+                </div>
+				</div>
+				<div class="box-content">
+                    
+<!-- Drag Down menu for select the class -->
+
+                    <div class="form-group">
+                        <select id="subject" name="subject" class="form-control">
+                            <option value="na" selected="">Select Class</option>
+                            <option value="">Math Section A</option>
+                            <option value="">Math Section B</option>
+                            <option value="">Science Section A</option>
+                            <option value="">Science Section B</option>
+
+                        </select>         
+                    </div>
+                    <div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                        <h5 align="center"> Present</h5>
+                        <h1 align="center"> 30</h1>
+                        </div>
+                        <div class="col-md-4">
+                        <h5 align="center"> Absent</h5>
+                        <h1 align="center"> 35</h1>
+                        </div>
+                        <div class="col-md-4">
+                        <h5 align="center"> Others</h5>
+                        <h1 align="center"> 1</h1>
+                        </div>
+                    </div>
+				</div>
+			</div>
+		</li>
+    </ul>
+</div>
+  <!-- End widget --> 
+<!--   Assignment widget --> 
+    <ul>
+		<li gridster-item="widget" ng-repeat="widget in dashboard4.widgets">
+			<div class="box" ng-controller="AssignmentWidgetCtrl">
+				<div class="box-header">
+					<h3>{{ widget.name }}</h3>
+					<div class="box-header-btns pull-right">
+                           <a title="open Full window" ng-click="open()"><i class="glyphicon glyphicon-new-window"></i></a>  
+						
+					</div>
+				</div>
+				<div class="box-content">
+                     Assignment A
+                    ipsum dolor sit ametdd dsdsdt 
+                    <ul><li>Math Section B</li></ul>
+                    2nd Nov, 2015 3:30pm - 4:30pm
+				</div>
+                
+			</div>
+		</li>
+	</ul>
+  <!-- End widget --> 
+   
+<!--   Recommended widget -->
+    <ul>
+        <li gridster-item="widget" ng-repeat="widget in dashboard1.widgets">
+			<div class="box" ng-controller="recommendWidgetCtrl">
+				<div class="box-header">
+					<h3>{{ widget.name }}</h3>
+					<div class="box-header-btns pull-right">
+                        <a title="Open full window" ng-click="open('lg')"><i class="glyphicon glyphicon-new-window"></i></a> 
+					</div>
+				</div>
+            <div class="box-content">
+            <div >
+                <div style="height: 170px">
+                    <carousel interval="myInterval">        
+                        <slide ng-repeat="slide in slides" active="slide.active">
+                            <button ng-click="open()">
+                                    <div class="div1">
+                                      <!--  <p style="margin:auto;height:170;"> About IIt Mathematics</p> -->
+                                      <img ng-src="{{slide1[$index+1].image}}" style="margin:auto;height:180;">
+                                    </div>
+                            </button>           
+                        </slide>
+                    </carousel>
+                </div>
+            </div>
+            </div>      
+            </div>
+		</li> 
+	</ul>
+  <!-- End widget --> 
+<!--  Collabration widget -->  
+    <ul>
+		<li gridster-item="widget" ng-repeat="widget in dashboard5.widgets" >
+			<div class="box" ng-controller="CustomWidgetCtrl" style="background-color:#e1e7a9">
+				<div class="box-header">
+					<h3>{{widget.name}}</h3>
+					<div class="box-header-btns pull-right">
+						<a title="settings" ng-click="openSettings(widget)"><i class="glyphicon glyphicon-cog"></i></a>
+						<a title="Remove widget" ng-click="remove(widget)"><i class="glyphicon glyphicon-trash"></i></a>
+					</div>
+				</div>
+				<div class="box-content" >
+                    <textarea class="gap" rows="6" cols="56"style="font-size: 66%;">
+    What's in Your mind....
+                    </textarea> 
+                <div class="gap"> 
+                    <h5>140 Words remaining...
+                    <button type="button" class="pull-right btn-primary btn-xs">Post</button>
+                    </h5>
+                </div>
+                <div class="gap">      
+                    <div class="row">
+                      <div class="col-md-2">
+                        <img src="images/profile.jpg"  height="45px" width="35px">
+                      </div>
+                      <div class="col-md-10">
+                          <span style="color:#2ECCFA"><h4><u>Person A </u></h4></span>
+                        <h5 align="left">
+                           Lorem impsum dolor sit amet
+                        </h5>
+                          <h6><i>2min ago </i></h6>
+                      </div>
+                    </div>
+                </div>
+                 <div class="gap">  
+                    <div class="row">
+                      <div class="col-md-2">
+                        <img src="images/profile.jpg"  height="45px" width="35px">
+                      </div>
+                      <div class="col-md-10">
+                          <span style="color:#2ECCFA"><h4><u>Me </u></h4></span>
+                        <h5 align="left">
+                           Lorem impsum dolor sit amet
+                        </h5>
+                          <h6><i>5min ago </i></h6>
+                      </div>
+                    </div>
+                </div>
+                <div class="gap">  
+                    <div class="row">
+                      <div class="col-md-2">
+                        <img src="images/profile.jpg"  height="45px" width="35px">
+                      </div>
+                      <div class="col-md-10">
+                          <span style="color:#2ECCFA"><h4><u>Person C </u></h4></span>
+                        <h5 align="left">
+                           Lorem impsum dolor sit amet
+                        </h5>
+                          <h6><i>45min ago </i></h6>
+                      </div>
+                    </div>
+                </div>   
+				</div>   
+			</div>
+		</li>
+	</ul>
+  <!-- End widget     -->
+<!-- End GRIDSTER     -->
+</div>
+<!-- -------------------->
+    <br/>
+    <div >
+        <a class="pull-right btn btn-primary" ng-click="addWidget()"><i class="glyphicon glyphicon-plus"></i> Add Widget</a>
+    </div>   
+    
+</tab>
+
+
+     <tab heading="Student  Attention">
+          <div >
+      <div class="contentbox1 myinner">
+        <div>
+        <div style="height: 140px">
+            <carousel interval="myInterval">
+            <slide ng-repeat="slide in slides" active="slide.active">  
+            <button ng-click="open()"class="nested" >
+            <div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <img src="images/profile.jpg"  height="90px" width="65px">
+                  </div>
+                  <div class="col-8">      
+                    <h4 align="left">
+                        <li>Student Name</li>
+                        <li>Group:</li>
+                        <li>Struggling in 4/5 Skill</li>
+                        <li>Completed 1 out of 5</li>
+                    </h4>
+                  </div>
+                </div>
+            </div>
+            </button>
+            <button ng-click="open()"class="nested" >
+            <div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <img src="images/profile.jpg"  height="90px" width="65px">
+                  </div>
+                  <div class="col-8">      
+                    <h4 align="left">
+                        <li>Student Name</li>
+                        <li>Group:</li>
+                        <li>Struggling in 4/5 Skill</li>
+                        <li>Completed 1 out of 5</li>
+                    </h4>
+                  </div>
+                </div>
+            </div>
+            </button>
+            <button ng-click="open()"class="nested" >
+            <div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <img src="images/profile.jpg"  height="90px" width="65px">
+                  </div>
+                  <div class="col-8">      
+                    <h4 align="left">
+                        <li>Student Name</li>
+                        <li>Group:</li>
+                        <li>Struggling in 4/5 Skill</li>
+                        <li>Completed 1 out of 5</li>
+                    </h4>
+                  </div>
+                </div>
+            </div>
+            </button>
+            <button ng-click="open()"class="nested" >
+            <div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <img src="images/profile.jpg"  height="90px" width="65px">
+                  </div>
+                  <div class="col-8">      
+                    <h4 align="left">
+                        <li>Student Name</li>
+                        <li>Group:</li>
+                        <li>Struggling in 4/5 Skill</li>
+                        <li>Completed 1 out of 5</li>
+                    </h4>
+                  </div>
+                </div>
+            </div>
+            </button>
+            </slide>
+            </carousel>
+        </div>
+      </div>
+      </div>  
+    </div>      
+   <br/>     
+
+<div gridster="gridsterOptions">
+	<!-- default widget ---------------------------------------------->
+	<ul>	
+    <li gridster-item="widget" ng-repeat="widget in dashboard.widgets">
+			<div class="box" ng-controller="CustomWidgetCtrl">
+				<div class="box-header">
+					<h3>{{ widget.name }}</h3>
+					<div class="box-header-btns pull-right">
+						<a title="settings" ng-click="openSettings(widget)"><i class="glyphicon glyphicon-cog"></i></a>
+						<a title="Remove widget" ng-click="remove(widget)"><i class="glyphicon glyphicon-trash"></i></a>
+					</div>
+				</div>
+				<div class="box-content">
+                    hare krishna
+				</div>
+			</div>
+		</li>
+    </ul>
+<!---------------------------------------------------------------------------->
+<!--   calendar widget --> 
+    <ul>
+    <li gridster-item="widget" ng-repeat="widget in dashboard2.widgets" >
+        <div class="box1" ng-controller="CalendarWidgetCtrl">
+            <div class="box-header">
+				<h3>{{ widget.name }}</h3>
+				<div class="box-header-btns pull-right">
+				<a title="Open full window" ng-click="open('lg')"><i class="glyphicon glyphicon-new-window"></i></a> 
+				</div>
+            </div>
+            <div class="box-content" style="line-height:1em;overflow:inherit">  
+                <div  ng-cloak>
+                    <div class="container-fluid">
+                        <div class="row" ng-controller="Calendarctrl as vm" id="demo" >
+                            <div class="row">
+                            <div class="col-md-4">
+                                <h3 class="text-center">{{ vm.calendarTitle }}</h3>
+                             </div>
+                             <div class="col-md-8">
+                              <div class="btn-group">
+                                <label
+                                  class="btn btn-primary"
+                                  mwl-date-modifier
+                                  date="vm.calendarDay"
+                                  decrement="vm.calendarView">
+                                  Previous
+                                </label>
+                                <label
+                                  class="btn btn-default"
+                                  mwl-date-modifier
+                                  date="vm.calendarDay"
+                                  set-to-today>
+                                  Today
+                                </label>
+                                <label
+                                  class="btn btn-primary"
+                                  mwl-date-modifier
+                                  date="vm.calendarDay"
+                                  increment="vm.calendarView">
+                                  Next
+                                  </label>
+                              </div>
+                                </div>
+                        </div>
+                            <br/>
+                        <div  class="col-md-12 col-md-offset-0">
+                          <mwl-calendar
+                            events="vm.events"
+                            view="vm.calendarView"
+                            view-title="vm.calendarTitle"
+                            current-day="vm.calendarDay"
+                            on-event-click="vm.eventClicked(calendarEvent)"
+                            on-event-times-changed="vm.eventTimesChanged(calendarEvent); calendarEvent.startsAt = calendarNewEventStart; calendarEvent.endsAt = calendarNewEventEnd"
+                           
+                            auto-open="true"
+                            day-view-start="06:00"
+                            day-view-end="22:00"
+                            day-view-split="30"
+                            cell-modifier="vm.modifyCell(calendarCell)">
+                          </mwl-calendar>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>         
+        </div>
+    </li>
+</ul>
+<!-- End widget -->    
+   
+<!--   Roster widget --> 
+<div>   
+    <ul>
+        <li gridster-item="widget" ng-repeat="widget in dashboard3.widgets" >
+			<div class="box" ng-controller="RosterWidgetCtrl">
+				<div class="box-header">   
+                 <div class="row">
+                    <div class="col-md-5">
+                        <h3>{{ widget.name }}</h3>
+                    </div>
+                 <div class="col">
+                    <p class="input-group" style="margin-top:10px">
+                    <input type="date" class="form-control" datepicker-popup ng-model="dt" is-open="status.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                    </p>
+                 </div>
+                </div>             
+                <div class="box-header-btns pull-right">
+                    <a title="open Full window" ng-click="open('lg')"><i class="glyphicon glyphicon-new-window"></i></a>  
+                </div>
+				</div>
+				<div class="box-content">
+                    
+<!-- Drag Down menu for select the class -->
+
+                    <div class="form-group">
+                        <select id="subject" name="subject" class="form-control">
+                            <option value="na" selected="">Select Class</option>
+                            <option value="">Math Section A</option>
+                            <option value="">Math Section B</option>
+                            <option value="">Science Section A</option>
+                            <option value="">Science Section B</option>
+
+                        </select>         
+                    </div>
+                    <div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                        <h5 align="center"> Present</h5>
+                        <h1 align="center"> 30</h1>
+                        </div>
+                        <div class="col-md-4">
+                        <h5 align="center"> Absent</h5>
+                        <h1 align="center"> 35</h1>
+                        </div>
+                        <div class="col-md-4">
+                        <h5 align="center"> Others</h5>
+                        <h1 align="center"> 1</h1>
+                        </div>
+                    </div>
+				</div>
+			</div>
+		</li>
+    </ul>
+</div>
+  <!-- End widget --> 
+<!--   Assignment widget --> 
+    <ul>
+		<li gridster-item="widget" ng-repeat="widget in dashboard4.widgets">
+			<div class="box" ng-controller="AssignmentWidgetCtrl">
+				<div class="box-header">
+					<h3>{{ widget.name }}</h3>
+					<div class="box-header-btns pull-right">
+                           <a title="open Full window" ng-click="open()"><i class="glyphicon glyphicon-new-window"></i></a>  
+						
+					</div>
+				</div>
+				<div class="box-content">
+                     Assignment A
+                    ipsum dolor sit ametdd dsdsdt 
+                    <ul><li>Math Section B</li></ul>
+                    2nd Nov, 2015 3:30pm - 4:30pm
+				</div>
+                
+			</div>
+		</li>
+	</ul>
+  <!-- End widget --> 
+   
+<!--   Recommended widget -->
+    <ul>
+        <li gridster-item="widget" ng-repeat="widget in dashboard1.widgets">
+			<div class="box" ng-controller="recommendWidgetCtrl">
+				<div class="box-header">
+					<h3>{{ widget.name }}</h3>
+					<div class="box-header-btns pull-right">
+                        <a title="Open full window" ng-click="open('lg')"><i class="glyphicon glyphicon-new-window"></i></a> 
+					</div>
+				</div>
+            <div class="box-content">
+            <div >
+                <div style="height: 170px">
+                    <carousel interval="myInterval">        
+                        <slide ng-repeat="slide in slides" active="slide.active">
+                            <button ng-click="open()">
+                                    <div class="div1">
+                                      <!--  <p style="margin:auto;height:170;"> About IIt Mathematics</p> -->
+                                      <img ng-src="{{slide1[$index+1].image}}" style="margin:auto;height:180;">
+                                    </div>
+                            </button>           
+                        </slide>
+                    </carousel>
+                </div>
+            </div>
+            </div>      
+            </div>
+		</li> 
+	</ul>
+  <!-- End widget --> 
+<!--  Collabration widget -->  
+    <ul>
+		<li gridster-item="widget" ng-repeat="widget in dashboard5.widgets" >
+			<div class="box" ng-controller="CustomWidgetCtrl" style="background-color:#e1e7a9">
+				<div class="box-header">
+					<h3>{{widget.name}}</h3>
+					<div class="box-header-btns pull-right">
+						<a title="settings" ng-click="openSettings(widget)"><i class="glyphicon glyphicon-cog"></i></a>
+						<a title="Remove widget" ng-click="remove(widget)"><i class="glyphicon glyphicon-trash"></i></a>
+					</div>
+				</div>
+				<div class="box-content" >
+                    <textarea class="gap" rows="6" cols="56"style="font-size: 66%;">
+    What's in Your mind....
+                    </textarea> 
+                <div class="gap"> 
+                    <h5>140 Words remaining...
+                    <button type="button" class="pull-right btn-primary btn-xs">Post</button>
+                    </h5>
+                </div>
+                <div class="gap">      
+                    <div class="row">
+                      <div class="col-md-2">
+                        <img src="images/profile.jpg"  height="45px" width="35px">
+                      </div>
+                      <div class="col-md-10">
+                          <span style="color:#2ECCFA"><h4><u>Person A </u></h4></span>
+                        <h5 align="left">
+                           Lorem impsum dolor sit amet
+                        </h5>
+                          <h6><i>2min ago </i></h6>
+                      </div>
+                    </div>
+                </div>
+                 <div class="gap">  
+                    <div class="row">
+                      <div class="col-md-2">
+                        <img src="images/profile.jpg"  height="45px" width="35px">
+                      </div>
+                      <div class="col-md-10">
+                          <span style="color:#2ECCFA"><h4><u>Me </u></h4></span>
+                        <h5 align="left">
+                           Lorem impsum dolor sit amet
+                        </h5>
+                          <h6><i>5min ago </i></h6>
+                      </div>
+                    </div>
+                </div>
+                <div class="gap">  
+                    <div class="row">
+                      <div class="col-md-2">
+                        <img src="images/profile.jpg"  height="45px" width="35px">
+                      </div>
+                      <div class="col-md-10">
+                          <span style="color:#2ECCFA"><h4><u>Person C </u></h4></span>
+                        <h5 align="left">
+                           Lorem impsum dolor sit amet
+                        </h5>
+                          <h6><i>45min ago </i></h6>
+                      </div>
+                    </div>
+                </div>   
+				</div>   
+			</div>
+		</li>
+	</ul>
+  <!-- End widget     -->
+<!-- End GRIDSTER     -->
+</div>
+<!-- -------------------->
+    <br/>
+    <div >
+        <a class="pull-right btn btn-primary" ng-click="addWidget()"><i class="glyphicon glyphicon-plus"></i> Add Widget</a>
+    </div>   
+    
+      </tab>
+      <tab heading="Student Recognition">
+          <div >
+      <div class="contentbox1 myinner">
+        <div>
+        <div style="height: 140px">
+            <carousel interval="myInterval">
+            <slide ng-repeat="slide in slides" active="slide.active">  
+            <button ng-click="open()"class="nested" >
+            <div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <img src="images/profile.jpg"  height="90px" width="65px">
+                  </div>
+                  <div class="col-8">      
+                    <h4 align="left">
+                        <li>Student Name</li>
+                        <li>Group:</li>
+                        <li>Struggling in 4/5 Skill</li>
+                        <li>Completed 1 out of 5</li>
+                    </h4>
+                  </div>
+                </div>
+            </div>
+            </button>
+            <button ng-click="open()"class="nested" >
+            <div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <img src="images/profile.jpg"  height="90px" width="65px">
+                  </div>
+                  <div class="col-8">      
+                    <h4 align="left">
+                        <li>Student Name</li>
+                        <li>Group:</li>
+                        <li>Struggling in 4/5 Skill</li>
+                        <li>Completed 1 out of 5</li>
+                    </h4>
+                  </div>
+                </div>
+            </div>
+            </button>
+            <button ng-click="open()"class="nested" >
+            <div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <img src="images/profile.jpg"  height="90px" width="65px">
+                  </div>
+                  <div class="col-8">      
+                    <h4 align="left">
+                        <li>Student Name</li>
+                        <li>Group:</li>
+                        <li>Struggling in 4/5 Skill</li>
+                        <li>Completed 1 out of 5</li>
+                    </h4>
+                  </div>
+                </div>
+            </div>
+            </button>
+            <button ng-click="open()"class="nested" >
+            <div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <img src="images/profile.jpg"  height="90px" width="65px">
+                  </div>
+                  <div class="col-8">      
+                    <h4 align="left">
+                        <li>Student Name</li>
+                        <li>Group:</li>
+                        <li>Struggling in 4/5 Skill</li>
+                        <li>Completed 1 out of 5</li>
+                    </h4>
+                  </div>
+                </div>
+            </div>
+            </button>
+            </slide>
+            </carousel>
+        </div>
+      </div>
+      </div>  
+    </div>      
+   <br/>     
+
+<div gridster="gridsterOptions">
+	<!-- default widget ---------------------------------------------->
+	<ul>	
+    <li gridster-item="widget" ng-repeat="widget in dashboard.widgets">
+			<div class="box" ng-controller="CustomWidgetCtrl">
+				<div class="box-header">
+					<h3>{{ widget.name }}</h3>
+					<div class="box-header-btns pull-right">
+						<a title="settings" ng-click="openSettings(widget)"><i class="glyphicon glyphicon-cog"></i></a>
+						<a title="Remove widget" ng-click="remove(widget)"><i class="glyphicon glyphicon-trash"></i></a>
+					</div>
+				</div>
+				<div class="box-content">
+                    hare krishna
+				</div>
+			</div>
+		</li>
+    </ul>
+<!---------------------------------------------------------------------------->
+<!--   calendar widget --> 
+    <ul>
+    <li gridster-item="widget" ng-repeat="widget in dashboard2.widgets" >
+        <div class="box1" ng-controller="CalendarWidgetCtrl">
+            <div class="box-header">
+				<h3>{{ widget.name }}</h3>
+				<div class="box-header-btns pull-right">
+				<a title="Open full window" ng-click="open('lg')"><i class="glyphicon glyphicon-new-window"></i></a> 
+				</div>
+            </div>
+            <div class="box-content" style="line-height:1em;overflow:inherit">  
+                <div  ng-cloak>
+                    <div class="container-fluid">
+                        <div class="row" ng-controller="Calendarctrl as vm" id="demo" >
+                            <div class="row">
+                            <div class="col-md-4">
+                                <h3 class="text-center">{{ vm.calendarTitle }}</h3>
+                             </div>
+                             <div class="col-md-8">
+                              <div class="btn-group">
+                                <label
+                                  class="btn btn-primary"
+                                  mwl-date-modifier
+                                  date="vm.calendarDay"
+                                  decrement="vm.calendarView">
+                                  Previous
+                                </label>
+                                <label
+                                  class="btn btn-default"
+                                  mwl-date-modifier
+                                  date="vm.calendarDay"
+                                  set-to-today>
+                                  Today
+                                </label>
+                                <label
+                                  class="btn btn-primary"
+                                  mwl-date-modifier
+                                  date="vm.calendarDay"
+                                  increment="vm.calendarView">
+                                  Next
+                                  </label>
+                              </div>
+                                </div>
+                        </div>
+                            <br/>
+                        <div  class="col-md-12 col-md-offset-0">
+                          <mwl-calendar
+                            events="vm.events"
+                            view="vm.calendarView"
+                            view-title="vm.calendarTitle"
+                            current-day="vm.calendarDay"
+                            on-event-click="vm.eventClicked(calendarEvent)"
+                            on-event-times-changed="vm.eventTimesChanged(calendarEvent); calendarEvent.startsAt = calendarNewEventStart; calendarEvent.endsAt = calendarNewEventEnd"
+                           
+                            auto-open="true"
+                            day-view-start="06:00"
+                            day-view-end="22:00"
+                            day-view-split="30"
+                            cell-modifier="vm.modifyCell(calendarCell)">
+                          </mwl-calendar>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>         
+        </div>
+    </li>
+</ul>
+<!-- End widget -->    
+   
+<!--   Roster widget --> 
+<div>   
+    <ul>
+        <li gridster-item="widget" ng-repeat="widget in dashboard3.widgets" >
+			<div class="box" ng-controller="RosterWidgetCtrl">
+				<div class="box-header">   
+                 <div class="row">
+                    <div class="col-md-5">
+                        <h3>{{ widget.name }}</h3>
+                    </div>
+                 <div class="col">
+                    <p class="input-group" style="margin-top:10px">
+                    <input type="date" class="form-control" datepicker-popup ng-model="dt" is-open="status.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                    </p>
+                 </div>
+                </div>             
+                <div class="box-header-btns pull-right">
+                    <a title="open Full window" ng-click="open('lg')"><i class="glyphicon glyphicon-new-window"></i></a>  
+                </div>
+				</div>
+				<div class="box-content">
+                    
+<!-- Drag Down menu for select the class -->
+
+                    <div class="form-group">
+                        <select id="subject" name="subject" class="form-control">
+                            <option value="na" selected="">Select Class</option>
+                            <option value="">Math Section A</option>
+                            <option value="">Math Section B</option>
+                            <option value="">Science Section A</option>
+                            <option value="">Science Section B</option>
+
+                        </select>         
+                    </div>
+                    <div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                        <h5 align="center"> Present</h5>
+                        <h1 align="center"> 30</h1>
+                        </div>
+                        <div class="col-md-4">
+                        <h5 align="center"> Absent</h5>
+                        <h1 align="center"> 35</h1>
+                        </div>
+                        <div class="col-md-4">
+                        <h5 align="center"> Others</h5>
+                        <h1 align="center"> 1</h1>
+                        </div>
+                    </div>
+				</div>
+			</div>
+		</li>
+    </ul>
+</div>
+  <!-- End widget --> 
+<!--   Assignment widget --> 
+    <ul>
+		<li gridster-item="widget" ng-repeat="widget in dashboard4.widgets">
+			<div class="box" ng-controller="AssignmentWidgetCtrl">
+				<div class="box-header">
+					<h3>{{ widget.name }}</h3>
+					<div class="box-header-btns pull-right">
+                           <a title="open Full window" ng-click="open()"><i class="glyphicon glyphicon-new-window"></i></a>  
+						
+					</div>
+				</div>
+				<div class="box-content">
+                     Assignment A
+                    ipsum dolor sit ametdd dsdsdt 
+                    <ul><li>Math Section B</li></ul>
+                    2nd Nov, 2015 3:30pm - 4:30pm
+				</div>
+                
+			</div>
+		</li>
+	</ul>
+  <!-- End widget --> 
+   
+<!--   Recommended widget -->
+    <ul>
+        <li gridster-item="widget" ng-repeat="widget in dashboard1.widgets">
+			<div class="box" ng-controller="recommendWidgetCtrl">
+				<div class="box-header">
+					<h3>{{ widget.name }}</h3>
+					<div class="box-header-btns pull-right">
+                        <a title="Open full window" ng-click="open('lg')"><i class="glyphicon glyphicon-new-window"></i></a> 
+					</div>
+				</div>
+            <div class="box-content">
+            <div >
+                <div style="height: 170px">
+                    <carousel interval="myInterval">        
+                        <slide ng-repeat="slide in slides" active="slide.active">
+                            <button ng-click="open()">
+                                    <div class="div1">
+                                      <!--  <p style="margin:auto;height:170;"> About IIt Mathematics</p> -->
+                                      <img ng-src="{{slide1[$index+1].image}}" style="margin:auto;height:180;">
+                                    </div>
+                            </button>           
+                        </slide>
+                    </carousel>
+                </div>
+            </div>
+            </div>      
+            </div>
+		</li> 
+	</ul>
+  <!-- End widget --> 
+<!--  Collabration widget -->  
+    <ul>
+		<li gridster-item="widget" ng-repeat="widget in dashboard5.widgets" >
+			<div class="box" ng-controller="CustomWidgetCtrl" style="background-color:#e1e7a9">
+				<div class="box-header">
+					<h3>{{widget.name}}</h3>
+					<div class="box-header-btns pull-right">
+						<a title="settings" ng-click="openSettings(widget)"><i class="glyphicon glyphicon-cog"></i></a>
+						<a title="Remove widget" ng-click="remove(widget)"><i class="glyphicon glyphicon-trash"></i></a>
+					</div>
+				</div>
+				<div class="box-content" >
+                    <textarea class="gap" rows="6" cols="56"style="font-size: 66%;">
+    What's in Your mind....
+                    </textarea> 
+                <div class="gap"> 
+                    <h5>140 Words remaining...
+                    <button type="button" class="pull-right btn-primary btn-xs">Post</button>
+                    </h5>
+                </div>
+                <div class="gap">      
+                    <div class="row">
+                      <div class="col-md-2">
+                        <img src="images/profile.jpg"  height="45px" width="35px">
+                      </div>
+                      <div class="col-md-10">
+                          <span style="color:#2ECCFA"><h4><u>Person A </u></h4></span>
+                        <h5 align="left">
+                           Lorem impsum dolor sit amet
+                        </h5>
+                          <h6><i>2min ago </i></h6>
+                      </div>
+                    </div>
+                </div>
+                 <div class="gap">  
+                    <div class="row">
+                      <div class="col-md-2">
+                        <img src="images/profile.jpg"  height="45px" width="35px">
+                      </div>
+                      <div class="col-md-10">
+                          <span style="color:#2ECCFA"><h4><u>Me </u></h4></span>
+                        <h5 align="left">
+                           Lorem impsum dolor sit amet
+                        </h5>
+                          <h6><i>5min ago </i></h6>
+                      </div>
+                    </div>
+                </div>
+                <div class="gap">  
+                    <div class="row">
+                      <div class="col-md-2">
+                        <img src="images/profile.jpg"  height="45px" width="35px">
+                      </div>
+                      <div class="col-md-10">
+                          <span style="color:#2ECCFA"><h4><u>Person C </u></h4></span>
+                        <h5 align="left">
+                           Lorem impsum dolor sit amet
+                        </h5>
+                          <h6><i>45min ago </i></h6>
+                      </div>
+                    </div>
+                </div>   
+				</div>   
+			</div>
+		</li>
+	</ul>
+  <!-- End widget     -->
+<!-- End GRIDSTER     -->
+</div>
+<!-- -------------------->
+    <br/>
+    <div >
+        <a class="pull-right btn btn-primary" ng-click="addWidget()"><i class="glyphicon glyphicon-plus"></i> Add Widget</a>
+    </div>   
+    
+      </tab>
+   
+    
+  </tabset>
+</div>

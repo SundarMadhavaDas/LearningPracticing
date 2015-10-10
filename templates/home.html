@@ -1,0 +1,103 @@
+ <head>
+
+  <link rel="stylesheet" href="css/stickys.css" />
+  </head>
+
+  <style>
+
+.contentbox1{
+  border-color:#ffff;
+  background-color:#ffff;
+  border-radius: 6px;
+  padding:10px;
+  margin-bottom: 600px;
+}
+</style>
+    <!-- Navigation, User Control Panel -->
+<div class="contentArea">
+ <div class="contentbox1">
+    
+
+    <!-- the notes -->
+    <ul class="clearfix" id="notesContainer">
+      <li ng-repeat="note in notes" class="aNote" id="{{ note.date }}" my-post-repeat-directive>
+        <p><a class="editNote icon-edit" title="edit" ng-click="showEditNoteForm(note)"></a></p>
+        <p><a class="deleteNote icon-trash" title="delete" ng-click="animateDeleteNote(note.date)"></a></p>
+        <h1>{{ note.title }}</h1>
+        <p class="noteDate">{{ note.date | date:'EEE, MMMM d @ h:mm a' }}</p>
+        <p>{{ note.msg }}</p>
+      </li>
+    </ul>
+<div data-ng-init="closeAddNoteForm()">
+    <!-- Add note form -->
+    <div class="formWrapper" id="formWrapper">
+      <form class="form-horizontal" ng-submit="submitNote()" ng-open="close">
+
+        <!-- success msg -->
+        <p class="success" id="success">Sticky note saved</p>
+
+        <!-- character count -->
+        <p class="noteCharCount" ng-model="noteMessage"><span><FONT COLOR="fffff">Characters Remaining:{{500 - noteMessage.length}}</FONT> <strong></strong></span></p>
+
+        <!-- close icon -->
+        <p class="closeFormIcon"><a id="closeIcon" ng-click="closeAddNoteForm()"><span class="icon-cancel"></span></a></p>
+
+        <!-- note body textarea -->
+        <div class="control-group">
+          <label class="control-label" for="noteMessage"><FONT COLOR="fffff">Note</FONT></label>
+          <div class="controls"><textarea rows="5" id="noteMessage" maxlength="500" ng-model="noteMessage"></textarea></div>
+        </div>
+
+        <!-- title textbox -->
+        <div class="control-group">
+          <label class="control-label" for="noteTitle"><FONT COLOR="fffff">Title</FONT></label>
+          <div class="controls"><input type="text" id="noteTitle" ng-model="noteTitle" placeholder="Optional Title"/></div>
+        </div>
+
+        <!-- submit button -->
+        <div class="control-group">
+          <div class="controls">
+            <button type="submit" class="btn btn-primary"><span aria-hidden="true" class="icon-new"></span> {{submitButton}}</button>
+            <button type="button" class="btn btn-danger" id="cancelButton" ng-click="closeAddNoteForm()"><span aria-hidden="true" class="icon-cancel"></span> Cancel</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    </div>
+
+    <!-- Recycle Bin -->
+
+    <div data-ng-init="toggleRecycleBin()">
+    <div class="recycleBin" id="recycleBin">
+      <div class="rbHeadingWrapper">
+        <h1>Recycle Bin</h1>
+        <p class="closeRecycleBinIconWrapper"><a class="icon-cancel" ng-click="toggleRecycleBin()"></a></p>
+      </div>
+      <div class="rbContentWrapper">
+        <button type="button" class="btn" ng-click="selectAll()" ng-disabled="rbSelect"><span class="icon-checkbox"></span> {{ rbSelectBtn }}</button>
+        <button type="button" class="btn" ng-disabled="rbChildBtns" ng-click="permDelNotes()"><span class="icon-trash-skinny"></span> Delete</button>
+        <button type="button" class="btn" ng-disabled="rbChildBtns" ng-click="restoreNote()"><span class="icon-restore"></span> Restore</button>
+        <hr />
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Title</th>
+              <th>Message</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="note in recycle track by $index">
+              <td><input type="checkbox" ng-model="note.selected" ng-change="setChildBtns()" /> {{ note.date | date:'MMM d' }}</td>
+              <td>{{ note.title }}</td>
+              <td>{{ note.msg }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+</div>
+
+ 
+</div>
+</div>

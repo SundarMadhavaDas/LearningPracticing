@@ -1,0 +1,46 @@
+<style>
+.grid {
+  width: 80%;
+  height: 30px;
+}
+.contentbox1{
+  border-color:#ffff;
+  background-color:#ffff;
+  border-radius: 6px;
+  padding:10px;
+  margin-bottom: 600px;
+}
+    
+#editor {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+    
+</style>
+
+<div class="contentArea" >
+	<div class="contentbox1">
+        
+         <div class="container">
+          <div class="row">
+            <div class="span12">
+              <h1>LO's Report</h1>
+              <hr>
+
+            </div>
+           </div> 
+          <div class="row">
+            <div class="span6" ng-init=pie()>
+              <chart value="myChart" id="myCoolChart"></chart>
+            </div>
+          </div>
+        </div>
+        <hr>
+		
+        <div class="grid" ui-grid="gridOptions" ui-grid-move-columns>
+        </div>
+	</div>
+</div>

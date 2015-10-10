@@ -1,0 +1,93 @@
+<style>
+.cb {    
+    list-style: none;
+    padding: 25px;
+    display:inline-block;
+    background-color: #1C1C1C;  
+    color: #FFF;
+   
+    border-radius: 5px;
+    width:309px
+}
+.cb1 {    
+    list-style: none;
+  
+    display:inline-block;
+    background-color: #1C1C1C;  
+    color: #FFF;
+   /* border: 2px solid rgb(22, 86, 68);*/
+    border-radius: 5px;
+    width:309px
+}
+.cb:hover{
+    background-color: #04B4AE; 
+    color: #FFF;
+}
+</style>
+
+<script type="text/ng-template" id="nodes_renderer.html">
+  <div ui-tree-handle class="tree-node tree-node-content">
+    <a class="btn btn-success btn-xs" data-nodrag ng-click="toggle(this)">
+      <span class="glyphicon"
+            ng-class="{'glyphicon-chevron-right': collapsed, 'glyphicon-chevron-down': !collapsed}">
+      </span>
+    </a>
+    <a ui-sref="app.report.module({moduleId:node.id})"  >{{node.title}}</a>
+    
+    
+  </div>
+  <ol ui-tree-nodes="" ng-model="node.lesson" ng-class="{hidden: collapsed}">
+      
+    <li ng-repeat="node in node.lesson" ui-tree-node  ng-show="visible(node)">
+        <div ui-tree-handle class="tree-node tree-node-content">  
+           <a class="btn btn-success btn-xs" data-nodrag ng-click="toggle(this)">
+            <span class="glyphicon"
+                ng-class="{'glyphicon-chevron-right': collapsed, 'glyphicon-chevron-down': !collapsed}">
+            </span>
+           </a>        
+         <a ui-sref="app.report.lesson({loId:node.id})"  >
+        {{node.title}}</a>
+                 </div>
+         <ol ui-tree-nodes="" ng-model="node.LO" ng-class="{hidden: collapsed}">
+            <li ng-repeat="node in node.LO" ui-tree-node  ng-show="visible(node)">
+               <div ui-tree-handle class="tree-node tree-node-content">  
+                <a ui-sref="app.report.LO({skillId:node.id})" >{{node.title}}
+                </a>
+                </div>
+            </li>
+        </ol>
+      </li>
+    </ol>
+  
+</script>
+
+<div class="contentArea">
+    <div class="row">
+      <div class="col-xs-4 col-sm-4 col-md-3 sidebar">
+       <div style="width:353px;height:750px;line-height:1em;overflow:inherit;padding:0px;background-color: #1C1C1C">
+          <div class="list" >
+          <a ui-sref="app.report.subject">
+          <span class="list-group-item cb "><h2 align="center">MATH<img align="right" src="images/math1.jpg" /></h2>
+          </span>
+          </a>
+          <br/> 
+          <div class="row">
+            <div class="col-sm-11">
+              <div ui-tree id="tree-root">
+                <ol ui-tree-nodes="" ng-model="record">
+                  <li ng-repeat="node in record" ui-tree-node ng-include="'nodes_renderer.html'" ng-show="visible(node)"></li>
+                </ol>
+              </div>
+            </div>
+          </div>
+         
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-xs-8 col">
+        
+         <div ui-view ></div>
+      </div>
+    </div>
+</div>

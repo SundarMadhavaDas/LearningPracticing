@@ -1,0 +1,49 @@
+<style>
+.cb {    
+    list-style: none;
+    padding: 25px;
+    display:inline-block;
+    background-color: #1C1C1C;  
+    color: #FFF;
+   
+    border-radius: 5px;
+    width:309px
+}
+.cb1 {    
+    list-style: none;
+  
+    display:inline-block;
+    background-color: #1C1C1C;  
+    color: #FFF;
+   /* border: 2px solid rgb(22, 86, 68);*/
+    border-radius: 5px;
+    width:309px
+}
+.cb:hover{
+    background-color: #04B4AE; 
+    color: #FFF;
+}
+
+</style>
+<div class="contentArea">
+    <div class="row">
+      <div class="col-xs-4 col-sm-4 col-md-3 sidebar">
+       <div style="width:353px;height:750px;line-height:1em;overflow:inherit;padding:0px;background-color: #1C1C1C">
+          <div class="list" >
+          <span class="list-group-item cb "><h2 align="center">MATH<img align="right" src="images/math1.jpg" /></h2></span>
+     
+        
+          <br/>
+            <div ng-repeat="module in modules">
+              <a ui-sref="app.math.module({moduleId:module.id})"  class="list-group-item cb1 "><h3> <img src="images/user-photo1.jpg" /> {{module.title}}</h3></a> 
+            </div> 
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-xs-8 col">
+       
+        <div ui-view ></div>
+      </div>
+    </div>
+</div>

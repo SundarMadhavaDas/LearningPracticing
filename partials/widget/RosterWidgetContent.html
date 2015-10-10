@@ -1,0 +1,109 @@
+<head>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+</head>
+        <div class="modal-header">
+            <h3 class="modal-title" align="center">Roster Full View</h3>
+        </div>
+        <div class="modal-body">
+           <div class="row">
+                <div class="col-md-9"> 
+             <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <select id="subject" name="subject" class="form-control">
+                            <option value="na" selected="">Select Class</option>
+                            <option value="1">Math Section A</option>
+                            <option value="2">Math Section B</option>
+                            <option value="3">Science Section A</option>
+                            <option value="4">Science Section B</option>
+
+                        </select>         
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <p class="input-group">
+                    <input type="date" class="form-control" datepicker-popup ng-model="dt" is-open="status.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                    </p>
+                </div>   
+                <div class="col-md-1">
+                    <h5 align="center"> Present</h5>
+                    <h3 align="center"> 30</h3>
+                </div>
+                <div class="col-md-1">
+                    <h5 align="center"> Absent</h5>
+                    <h3 align="center"> 5</h3>
+                </div>
+                <div class="col-md-1">
+                    <h5 align="center"> Others</h5>
+                    <h3 align="center"> 1</h3>
+                </div>
+               
+                 
+            </div>
+                    <br/><br/>
+            <div class="row">
+                <div class="col-md-12">
+            <table class="table table-bordered">
+                <tr class="warning" >
+                  <td >Select</td>
+                  <td >Name</td>
+                  <td >Roll No</td>
+                  <td >Profile</td>
+                  <td >Reports</td>
+                </tr>
+                
+                 <tr >
+                  <td ><input type="checkbox"></td>
+                  <td >Arpit</td>
+                  <td >10</td>
+                  <td >View Profile</td>
+                  <td >View Report</td>
+                </tr>
+                <tr class="active">
+                   <td ><input type="checkbox"></td>
+                  <td >Mahendra</td>
+                  <td >11</td>
+                   <td >View Profile</td>
+                  <td >View Report</td>
+                </tr>
+                <tr>
+                  <td ><input type="checkbox"></td>
+                  <td >Rajiv</td>
+                  <td >12</td>
+                  <td >View Profile</td>
+                  <td >View Report</td>
+                </tr>
+                <tr class="active">
+                  <td ><input type="checkbox"></td>
+                  <td >Pankaj</td>
+                  <td >13</td>
+                   <td >View Profile</td>
+                  <td >View Report</td>
+                </tr>
+                <tr>
+                  <td ><input type="checkbox"></td>
+                  <td >Dalchand</td>
+                  <td >14</td>
+                  <td >View Profile</td>
+                  <td >View Report</td>
+                </tr>
+            </table>
+                </div></div>
+               </div>
+             <div class="col-md-3">
+                    <h5 align="center"> List of Groups</h5>
+                    <br/>
+                    <div style="width:150px;margin-left:20px;height:300px;line-height:2em;overflow:inherit;padding:0px;background-color: #f5f5f5; border: 2px solid #1C1C1C" >
+                      <h2  align="center">Class</h2>
+                        <br/>
+                      <div  ng-repeat="item in items">
+                        <a href="#" class="list-group-item">{{item}}</a>
+                      </div>
+                    </div>   
+                    </div></div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+        </div>
+  

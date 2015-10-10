@@ -1,0 +1,87 @@
+<script src="scripts/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+  $(".topBar-menu").click(function(){
+    $(".leftNavPane").toggleClass("active");
+    $(".sectionContent").toggleClass("active");
+  });
+});
+</script>
+
+
+
+
+<header>
+  <div class="topBar">
+    <div class="topBar-notifications">
+      <ul>
+        <li><a href="javascript:;" class="messages"><img src="images/spacer.gif" /><span class="counts">20</span></a></li>
+        <li><a href="javascript:;" class="anouncements"><img src="images/spacer.gif" /><span class="counts">15</span></a></li>
+      </ul>
+    </div>
+    <nav class="topBar-menu"><a href="javascript:;"><img src="images/spacer.gif" /></a></nav>
+    <h2 class="topBar-title"></h2>
+  </div>
+</header>
+
+<!-- left menu navigation pane--> 
+<div>
+  <nav class="leftNavPane">
+  <ul>
+    <li popover="Home" popover-trigger="mouseenter"><a ui-sref="app.home"> <img src="images/spacer.gif" class="icon_home" /> <span  >Home</span></a></li>
+    
+    <li popover="Curriculum" popover-trigger="mouseenter"><a ui-sref="app.curriculum"> <img  src="images/spacer.gif" class="icon_profile"  /> <span  >Curriculum</span></a></li>
+    
+    <li  popover="Notes" popover-trigger="mouseenter"><a ui-sref="app.notes"><img src="images/spacer.gif" class="icon_curriculum" /> <span>Notes</span></a></li>
+
+    <li popover="Progress" popover-trigger="mouseenter"><a ui-sref="app.starttest"><img src="images/spacer.gif" class="icon_mail" /> <span>Assessment</span></a></li>
+    
+    <li popover="Reports" popover-trigger="mouseenter"><a ui-sref="app.report"><img src="images/spacer.gif" class="icon_pd" /> <span>Progress</span></a></li>
+    
+    
+    
+    <li popover="course creation" popover-trigger="mouseenter"><a ui-sref="app.course"><img src="images/spacer.gif" class="icon_linegraph" /> <span>Reports</span></a></li>
+    
+    <li popover="Setting" popover-trigger="mouseenter"><a href="javascript:;"><img src="images/spacer.gif" class="icon_exceed" /> <span>Profile</span></a></li>
+    
+    <li popover="Logout" popover-trigger="mouseenter"><a href="javascript:;"><img src="images/spacer.gif" class="icon_gb" /> <span>Settings</span></a></li>
+    
+    <li><a href="javascript:;"><img src="images/spacer.gif" class="
+    icon_moodle" /> <span>Market Place</span></a></li>
+    
+    <li><a href="javascript:;" class="moreNavs"><img src="images/spacer.gif" class="icon_moreNavs" /> <span>Sign-Out</span></a></li>
+  </ul>
+  </nav>
+</div>
+<!-- jQuery for toggle left menu-->
+
+
+
+
+
+<!-- for load the Routing content-->
+<div ui-view ></div>
+   
+<!-- footer breadcrumb--> 
+
+<!--<div class="well" ncy-breadcrumb>
+</div>-->
+<footer class="footer" id="footer" >
+  <nav class="fr">
+    <ul>
+      
+      <li><a href="javascript:;" class="icon icon-new" ng-click="showAddNoteForm()"><span>Add Note</span></a></li>
+
+
+      <li><a href="javascript:;" class="icon icon-trash" ng-click="toggleRecycleBin()"><span class="recycleCount" ng-model="recycle" class="counts">RecycleBin</span></a></li>
+
+
+    </ul>
+  </nav>
+  <nav class="fl" ncy-breadcrumb>
+    <ul>
+      <li><a href="javascript:;" class="icon_back"><img src="images/spacer.gif" /><span>Back</span></a></li>
+    </ul>
+  </nav>
+
+</footer>
